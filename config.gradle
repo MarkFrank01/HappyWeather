@@ -1,0 +1,24 @@
+ext {
+    android = [
+
+        buildToolsVersion: '26.0.2',
+        supportVersion   : '26.0.2',
+        minSdkVersion    : 19,
+        compileSdkVersion: 26,
+        targetSdkVersion : 25,
+        applicationId    : "com.wjc.HappyWeather",
+        versionCode      : 34,
+        versionName      : "2.3.1",
+        resConfigs       : "zh",
+    ]
+
+    weather = [
+        name : "WeatherKey",
+        value: "ae1d6def536f4b98b85edfff99e34424"
+    ]
+
+    fir = [
+        name : "FirToken",
+        value: "7db041d0c3013b63e4bed2a554f02d85"
+    ]
+}
