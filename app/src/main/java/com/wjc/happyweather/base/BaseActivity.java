@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
 /**
  * Package_NAME : com.wjc.happyweather.base
  * File_NAME : BaseActivity
- * Created by WJC on 2017/12/14 13:07
+ * Created by WJC on 2017/1/7 13:07
  * Describe : TODO
  */
 

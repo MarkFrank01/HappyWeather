@@ -43,7 +43,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
         // T崩溃后自动初始化数据
         SharedPreferenceUtil.getInstance().setCityName("北京");
-//        OrmLite.getInstance().deleteDatabase();
+        OrmLite.getInstance().deleteDatabase();
         // 调用系统错误机制
         mDefaultHandler.uncaughtException(thread, ex);
     }

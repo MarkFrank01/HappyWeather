@@ -8,7 +8,7 @@ import butterknife.ButterKnife;
 /**
  * Package_NAME : com.wjc.happyweather.base
  * File_NAME : BaseViewHolder
- * Created by WJC on 2017/12/14 14:02
+ * Created by WJC on 2017/1/7 14:02
  * Describe : TODO
  */
 

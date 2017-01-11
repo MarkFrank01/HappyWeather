@@ -17,7 +17,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 /**
  * Package_NAME : com.wjc.happyweather.base
  * File_NAME : BaseApplication
- * Created by WJC on 2017/12/14 13:25
+ * Created by WJC on 2017/1/17 13:25
  * Describe : TODO
  */
 

@@ -10,7 +10,7 @@ import com.trello.rxlifecycle2.components.support.RxFragment;
 /**
  * Package_NAME : com.wjc.happyweather.base
  * File_NAME : BaseFragment
- * Created by WJC on 2017/12/14 13:53
+ * Created by WJC on 2017/1/7 13:53
  * Describe : TODO
  */
 
