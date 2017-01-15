@@ -32,8 +32,6 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="a847d6b02567e4d3eab31b00e1dc8ade"/>
@@ -42,23 +40,25 @@
             android:value="6c5241a92d395baa70c227300f5db822"/>
 
         <!-- <service android:name="com.amap.api.location.APSService"/> -->
-        <!-- <service android:name=".modules.service.AutoUpdateService"/> -->
-
+         <service android:name=".modules.service.AutoUpdateService"/>
 
         <activity
             android:name=".modules.launch.FirstActivity"
             android:theme="@style/FirstTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name=".modules.main.ui.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"/>
+        <activity android:name=".modules.main.ui.DetailCityActivity">
+        </activity>
+
 
     </application>
 
