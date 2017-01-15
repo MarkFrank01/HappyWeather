@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 
-import com.wjc.happyweather.MainActivity;
+import com.wjc.happyweather.modules.main.ui.MainActivity;
 import com.wjc.happyweather.R;
 import com.wjc.happyweather.common.utils.SharedPreferenceUtil;
 import com.wjc.happyweather.modules.main.domain.Weather;

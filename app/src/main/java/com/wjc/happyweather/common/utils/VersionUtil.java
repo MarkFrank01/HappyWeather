@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 
 import com.wjc.happyweather.R;
+import com.wjc.happyweather.component.RetrofitSingleton;
 import com.wjc.happyweather.modules.about.domain.Version;
 
 
@@ -47,35 +48,35 @@ public class VersionUtil {
         }
     }
 
-//    public static void checkVersion(Context context) {
-//        RetrofitSingleton.getInstance()
-//            .fetchVersion()
-//            .doOnNext(version -> {
-//                String firVersionName = version.versionShort;
-//                String currentVersionName = VersionUtil.getVersion(context);
-//                if (currentVersionName.compareTo(firVersionName) < 0) {
-//                    if (!SharedPreferenceUtil.getInstance().getString("version", "").equals(version.versionShort)) {
-//                        showUpdateDialog(version, context);
-//                    }
-//                }
-//            })
-//            .subscribe();
-//    }
-//
-//    public static void checkVersion(Context context, boolean force) {
-//        RetrofitSingleton.getInstance()
-//            .fetchVersion()
-//            .doOnNext(version -> {
-//                String firVersionName = version.versionShort;
-//                String currentVersionName = VersionUtil.getVersion(context);
-//                if (currentVersionName.compareTo(firVersionName) < 0) {
-//                    showUpdateDialog(version, context);
-//                } else {
-//                    ToastUtil.showShort("已经是最新版本(⌐■_■)");
-//                }
-//            })
-//            .subscribe();
-//    }
+    public static void checkVersion(Context context) {
+        RetrofitSingleton.getInstance()
+            .fetchVersion()
+            .doOnNext(version -> {
+                String firVersionName = version.versionShort;
+                String currentVersionName = VersionUtil.getVersion(context);
+                if (currentVersionName.compareTo(firVersionName) < 0) {
+                    if (!SharedPreferenceUtil.getInstance().getString("version", "").equals(version.versionShort)) {
+                        showUpdateDialog(version, context);
+                    }
+                }
+            })
+            .subscribe();
+    }
+
+    public static void checkVersion(Context context, boolean force) {
+        RetrofitSingleton.getInstance()
+            .fetchVersion()
+            .doOnNext(version -> {
+                String firVersionName = version.versionShort;
+                String currentVersionName = VersionUtil.getVersion(context);
+                if (currentVersionName.compareTo(firVersionName) < 0) {
+                    showUpdateDialog(version, context);
+                } else {
+                    ToastUtil.showShort("已经是最新版本(⌐■_■)");
+                }
+            })
+            .subscribe();
+    }
 
     private static void showUpdateDialog(Version versionAPI, final Context context) {
         String title = "发现新版" + versionAPI.name + "版本号：" + versionAPI.versionShort;

@@ -113,7 +113,7 @@ public class RetrofitSingleton {
         };
     }
 
-/*    public Observable<Weather> fetchWeather(String city) {
+    public Observable<Weather> fetchWeather(String city) {
         return sApiService.mWeatherAPI(city, C.KEY)
             .flatMap(weather -> {
                 String status = weather.mWeathers.get(0).status;
@@ -133,5 +133,5 @@ public class RetrofitSingleton {
         return sApiService.mVersionAPI(C.API_TOKEN)
             .doOnError(RetrofitSingleton::disposeFailureInfo)
             .compose(RxUtil.io());
-    }*/
+    }
 }
