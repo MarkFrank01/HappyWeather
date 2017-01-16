@@ -11,6 +11,9 @@ import android.view.animation.DecelerateInterpolator;
 
 import com.wjc.happyweather.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Package_NAME : com.wjc.happyweather.base
  * File_NAME : ToolbarActivity
@@ -20,18 +23,24 @@ import com.wjc.happyweather.R;
 
 public abstract class ToolbarActivity extends BaseActivity {
 
+    @BindView(R.id.appbar_layout)
+    AppBarLayout mAppBar;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+
     public void onToolbarClick() {
     }
 
-    protected AppBarLayout mAppBar;
-    protected Toolbar mToolbar;
+//    protected AppBarLayout mAppBar;
+//    protected Toolbar mToolbar;
     protected boolean mIsHidden = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAppBar = (AppBarLayout) findViewById(R.id.appbar_layout);
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+//        mAppBar = (AppBarLayout) findViewById(R.id.appbar_layout);
+//        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        ButterKnife.bind(this);
         if (mToolbar == null || mAppBar == null) {
             throw new IllegalArgumentException(
                     "The subclass of ToolbarActivity must contain a toolbar.");

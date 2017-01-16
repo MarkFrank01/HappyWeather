@@ -113,7 +113,7 @@ public class MultiCityFragment extends BaseFragment {
 
             @Override
             public void click(Weather weather) {
-                ToastUtil.showShort("Nothing");
+                DetailCityActivity.launch(getActivity(),weather);
             }
         });
 

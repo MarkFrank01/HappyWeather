@@ -16,17 +16,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.wjc.happyweather.R;
 import com.wjc.happyweather.base.BaseActivity;
 import com.wjc.happyweather.common.C;
+import com.wjc.happyweather.common.Irrelevant;
 import com.wjc.happyweather.common.utils.CircularAnimUtil;
 import com.wjc.happyweather.common.utils.DoubleClickExit;
+import com.wjc.happyweather.common.utils.RxDrawer;
 import com.wjc.happyweather.common.utils.SharedPreferenceUtil;
 import com.wjc.happyweather.common.utils.ToastUtil;
+import com.wjc.happyweather.modules.city.ui.ChoiceCityActivity;
 import com.wjc.happyweather.modules.main.adapter.HomePagerAdapter;
 
 import butterknife.BindView;
+import io.reactivex.functions.Consumer;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -142,6 +147,23 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        RxDrawer.close(mDrawerLayout)
+                .doOnNext(irrelevant->{
+                    switch (item.getItemId()){
+                        case R.id.nav_city:
+                            ChoiceCityActivity.launch(MainActivity.this);
+                            break;
+                        case R.id.nav_multi_cities:
+                            mViewPager.setCurrentItem(1);
+                            break;
+                        case R.id.nav_set:
+                            break;
+                        case R.id.nav_about:
+                            break;
+                    }
+                })
+                .subscribe();
+
         return false;
     }
 
@@ -160,10 +182,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         if (position == 1) {
             mFab.setImageResource(R.drawable.ic_add_24dp);
             mFab.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary)));
-            mFab.setOnClickListener(v -> {
-//                Intent intent = new Intent(MainActivity.this, ChoiceCityActivity.class);
-//                intent.putExtra(C.MULTI_CHECK, true);
-//                CircularAnimUtil.startActivity(MainActivity.this, intent, mFab, R.color.colorPrimary);
+            mFab.setOnClickListener(v->{
+                Intent intent = new Intent(MainActivity.this, ChoiceCityActivity.class);
+                intent.putExtra(C.MULTI_CHECK, true);
+                CircularAnimUtil.startActivity(MainActivity.this, intent, mFab, R.color.colorPrimary);
             });
         } else {
             mFab.setImageResource(R.drawable.ic_favorite);
@@ -175,6 +197,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private void showShareDialog() {
         // wait to do
     }
+
 
     @Override
     public void onBackPressed() {
